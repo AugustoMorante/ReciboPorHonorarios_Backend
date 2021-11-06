@@ -40,6 +40,15 @@ public class Recibo {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Empresa empresa;
 
+    @OneToOne( fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "tasa_ccodigo", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Tasa tasa;
+
+    @OneToOne( fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "plazo_ccodigo", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Plazo plazo;
 
     public long getC_codigo() {
         return c_codigo;
